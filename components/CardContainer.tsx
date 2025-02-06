@@ -8,6 +8,18 @@ export default function CardContainer() {
       <CardCarousel />
       <CardCarousel />
       <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
+      <CardCarousel />
     </div>
   );
 }
