@@ -9,11 +9,11 @@ import TextInput from "./textinput";
 import TextArea from "./TextArea";
 
 export type RegisterInputProps = {
-  fullName: string;
-  email: string;
-  password: string;
-  phone: string;
+  name: string;
+  price: number;
+  description: string;
 };
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 export default function Form() {
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -25,7 +25,19 @@ export default function Form() {
   const router = useRouter();
   async function onSubmit(data: RegisterInputProps) {
     console.log(data);
+
+    try {
+      const res = await fetch(`${baseUrl}/api/v1/products`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      console.log(res);
+    } catch (error) {}
   }
+
   return (
     <div className="w-full lg:grid h-screen lg:min-h-[600px] lg:grid-cols-2 relative ">
       <div className="flex items-center justify-center py-12">
@@ -50,7 +62,7 @@ export default function Form() {
             <TextArea
               register={register}
               errors={errors}
-              label="Product Description"
+              label="Product description"
               name="productDetails"
             />
 

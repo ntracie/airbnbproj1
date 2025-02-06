@@ -13,14 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
+model Product {
   
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   name   String
   price     Int
   description String
-
-  authorId String    @db.ObjectId
 }
 
 
